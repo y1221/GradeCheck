@@ -118,40 +118,33 @@ namespace GradeCheck
         }
         private string compareAverage(int point, Subjects subject)
         {
+            int average = 0;
+
             switch (subject)
             {
                 case Subjects.math:
-                    if (cstMathAve <= point)
-                    {
-                        return "平均点以上";
-                    }
-                    else
-                    {
-                        return "平均点以下";
-                    }
+                    average = cstMathAve;
+                    break;
 
                 case Subjects.Physics:
-                    if (cstPhysicsAve <= point)
-                    {
-                        return "平均点以上";
-                    }
-                    else
-                    {
-                        return "平均点以下";
-                    }
+                    average = cstPhysicsAve;
+                    break;
 
                 case Subjects.Eng:
-                    if (cstEngAve <= point)
-                    {
-                        return "平均点以上";
-                    }
-                    else
-                    {
-                        return "平均点以下";
-                    }
+                    average = cstEngAve;
+                    break;
 
                 default:
                     return "エラー";
+            }
+
+            if (average <= point)
+            {
+                return "平均点以上";
+            }
+            else
+            {
+                return "平均点以下";
             }
         }
 
